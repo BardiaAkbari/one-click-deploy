@@ -3,6 +3,7 @@ import {
     DefaultJobQueuePlugin,
     DefaultSearchPlugin,
     VendureConfig,
+    LanguageCode,
 } from '@vendure/core';
 import { defaultEmailHandlers, EmailPlugin } from '@vendure/email-plugin';
 import { AssetServerPlugin, configureS3AssetStorage } from '@vendure/asset-server-plugin';
@@ -41,6 +42,11 @@ export const config: VendureConfig = {
           secret: process.env.COOKIE_SECRET,
         },
     },
+
+    // ✅ Add language settings here
+    defaultLanguageCode: LanguageCode.en, // Default to English
+    availableLanguages: [LanguageCode.en, LanguageCode.fa], // Enable Persian (Farsi)
+
     dbConnectionOptions: {
         type: 'postgres',
         // See the README.md "Migrations" section for an explanation of
